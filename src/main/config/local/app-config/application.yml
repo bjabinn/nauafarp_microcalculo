@@ -1,0 +1,25 @@
+# ===================================================================
+# Spring Boot configuration properties
+# ===================================================================
+
+
+# ===================================================================
+# Giss framework properties
+# ===================================================================
+giss:
+  audit:
+    enabled: false
+  security:
+    web:
+      fake:
+        enabled: true
+        roles: ROLE_GISS_ACTUATOR
+        authorities: READ_FAKE, WRITE_FAKE
+        type-of-user: INTRANET
+      multi-tenant:
+        enabled: false
+
+management:
+  tracing:
+    enabled: false
+

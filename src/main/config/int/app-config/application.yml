@@ -1,0 +1,16 @@
+# ===================================================================
+# Giss framework properties
+# ===================================================================
+giss:
+  audit:
+    enabled: true
+
+  security:
+    web:
+      fake:
+        enabled: true
+        roles: ROLE_GISS_ACTUATOR
+        authorities: READ_FAKE, WRITE_FAKE
+        type-of-user: INTRANET
+      multi-tenant:
+        enabled: false

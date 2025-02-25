@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: ${DATASOURCE_URI}
+    username: ${DATASOURCE_USER}
+    password: ${DATASOURCE_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+# ===================================================================
+# Giss framework properties
+# ===================================================================
+
+giss:
+  application:
+    name: poc-microcalculo-far
+    capp-code: NAUA
+    development-center: ot
+  kafka:
+    producer-config:
+      producers:
+        EnviarResultadoService:
+          topic: tp.naua.calculo-realizado
+
+

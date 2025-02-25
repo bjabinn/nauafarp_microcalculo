@@ -1,0 +1,17 @@
+<artifacts>
+	<helm>
+		<deploy_default
+				runtime_tech="java"
+				runtime_tech_version="21"
+				oc_namespace_suffix="ot-naua"
+				chart_version="1.22.0"/>
+
+		<deploy artifact="poc-microcalculo-far"
+				path_config="src/main"
+				nombre_release="poc-microcalculo-far"/>
+	</helm>
+
+	<artifact name="poc-microcalculo-far">
+		<nexus_file>poc-microcalculo-far.jar</nexus_file>
+	</artifact>
+</artifacts>

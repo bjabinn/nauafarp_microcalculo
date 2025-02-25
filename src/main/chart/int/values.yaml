@@ -1,0 +1,50 @@
+placeholdersSubstitution:
+  enabled: true
+service:
+  spec:
+    ports:
+      insecure:
+        number: 8080
+      secure:
+        number: 8443
+      debug:
+        number: 8778
+virtualservice:
+  spec:
+    http:
+      match:
+        - uri:
+            prefix: /
+      route:
+        port:
+          number: 8080
+
+probes:
+  readiness:
+    path: /metrics/health/readiness
+    port: 8080
+    initialDelaySeconds: 40
+  liveness:
+    path: /metrics/health/liveness
+    port: 8080
+    initialDelaySeconds: 40
+
+gateway:
+  spec:
+    hosts:
+      port:
+        number: 80
+
+configenv:
+  - key: "SPRING_CONFIG_LOCATION"
+    value: "/opt/app/app-config/application.yml"
+
+existingSecrets:
+  - name: "naua-kafka-user-int"
+  - name: "naua-kafka-app-properties"
+
+existingSecretsASVolumes:
+  - secretName: "naua-kafka-app-cert"
+    mountPath: "/opt/app/cert-config/"
+
+
